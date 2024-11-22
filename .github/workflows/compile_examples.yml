@@ -30,7 +30,7 @@ jobs:
               version: ${{ matrix.core.version }}
           fqbn: ${{ matrix.board.fqbn }}
           libraries: |
-            - source-path: ./
+            - source-path: ./lib
           sketch-paths:
             ./examples/helloWorld/helloWorld.ino
             ./examples/wifiTest/wifiTest.ino

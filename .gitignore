@@ -33,3 +33,11 @@
 
 # Mac related files
 .DS_Store
+
+# PlatformIO related files
+.pio
+.vscode/.browse.c_cpp.db*
+.vscode/c_cpp_properties.json
+.vscode/launch.json
+.vscode/extensions.json
+.vscode/ipch

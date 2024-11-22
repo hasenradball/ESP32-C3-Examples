@@ -39,5 +39,6 @@ jobs:
             ./examples/wifiTest/wifiTest.ino
             ./examples/readAM2302-Sensor/readAM2302-Sensor.ino
             ./examples/timerInterrupt/timerInterrupt.ino
-          build-property: |
-            build.extra_flags="-I ${{ github.workspace }}/include"
+          cli-compile-flags: |
+            - --library
+            - "${{ github.workspace }}/include"

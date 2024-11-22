@@ -34,8 +34,6 @@ jobs:
               source-url: https://espressif.github.io/arduino-esp32/package_esp32_index.json
               version: ${{ matrix.core.version }}
           fqbn: ${{ matrix.board.fqbn }}
-          libraries: |
-            - source-path: '[]'
           sketch-paths:
             ./examples/helloWorld/helloWorld.ino
             ./examples/wifiTest/wifiTest.ino

@@ -1,0 +1,10 @@
+{
+    "name": "DBG_Print",
+    "version": "2.0.9",
+    "description": "Functions for debugging output to serial port",
+    "keywords": ["debug", "serial"],
+    "authors":
+    {
+        "name": "Frank Häfele"
+    }
+}

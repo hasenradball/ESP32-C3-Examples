@@ -1,0 +1,10 @@
+{
+    "name": "cWIFI",
+    "version": "2.3.8",
+    "description": "class for using WIFI functions with ESP8266 and ESP32",
+    "keywords": ["esp8266wifi", "wifi", "esp32"],
+    "authors":
+    {
+        "name": "Frank Häfele"
+    }
+}

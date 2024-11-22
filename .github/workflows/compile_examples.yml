@@ -35,7 +35,7 @@ jobs:
               version: ${{ matrix.core.version }}
           fqbn: ${{ matrix.board.fqbn }}
           libraries: |
-            - source-path: ${{ github.workspace }}/lib
+            - source-path: '[]'
           sketch-paths:
             ./examples/helloWorld/helloWorld.ino
             ./examples/wifiTest/wifiTest.ino

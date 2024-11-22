@@ -1,0 +1,38 @@
+name: Compile examples foolder
+
+on: [push, pull_request]
+
+jobs:
+ 
+ build-esp32:
+    runs-on: ubuntu-latest
+    #if: contains(github.event.head_commit.message, 'esp32')
+
+    strategy:
+      fail-fast: false
+
+      matrix:
+        board:
+          - fqbn: esp32:esp32:esp32-c3-devkitm-1
+        core:
+          - version: 3.0.7
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Compile ESP32 examples
+        uses: arduino/compile-sketches@v1
+        with:
+          platforms: |
+            - name: esp32:esp32
+              source-url: https://espressif.github.io/arduino-esp32/package_esp32_index.json
+              version: ${{ matrix.core.version }}
+          fqbn: ${{ matrix.board.fqbn }}
+          libraries: |
+            - source-path: ./
+          sketch-paths:
+            ./examples/helloWorld/helloWorld.ino
+            ./examples/wifiTest/wifiTest.ino
+            ./examples/readAM2302_Sensor/readAM2302_sensor.ino
+            ./examples/timerInterrupt/timerInterrupt.ino

@@ -25,7 +25,6 @@ jobs:
         run: |
               mkdir -p $HOME/Arduino/libraries
               cp -R lib/* $HOME/Arduino/libraries/
-              ls $
       
       - name: Compile ESP32 examples
         uses: arduino/compile-sketches@v1

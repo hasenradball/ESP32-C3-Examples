@@ -30,7 +30,9 @@ Wifi::Wifi(const char *ssid, const char *password, const char *ip, const char *g
   _dns1 {dns1},
   _hostname {hostname}
 {
+#ifdef ESP8266
   WiFi.setAutoConnect(false);
+#endif
   WiFi.setAutoReconnect(true);
   WiFi.persistent(true);
   //Wifi_Disconnect();

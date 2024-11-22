@@ -13,7 +13,7 @@ jobs:
 
       matrix:
         board:
-          - fqbn: esp32:esp32:esp32-c3-devkitm-1
+          - fqbn: esp32:esp32:esp32c3
         core:
           - version: 3.0.7
     

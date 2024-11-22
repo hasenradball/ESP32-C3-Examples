@@ -41,4 +41,4 @@ jobs:
             ./examples/readAM2302-Sensor/readAM2302-Sensor.ino
             ./examples/timerInterrupt/timerInterrupt.ino
           build-properties: |
-            build.extra_flags="-I${{ github.workspace }}/include"
+            build.extra_flags="-I ${{ github.workspace }}/include"

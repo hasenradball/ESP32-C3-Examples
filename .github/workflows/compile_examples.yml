@@ -20,7 +20,12 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-
+      
+      - name: Setup Libraries
+        run: |
+              mkdir -p $HOME/Arduino/libraries
+              cp -R lib/* $HOME/Arduino/libraries/
+      
       - name: Compile ESP32 examples
         uses: arduino/compile-sketches@v1
         with:

@@ -25,6 +25,13 @@ You can install/clone the repo by th following command.
 ```
 git clone https://github.com/hasenradball/ESP32-C3-Examples.git
 ```
+After the cloning the repository please do the following on your local repo to prevent the files to be tracked and pushed.
+
+```
+git update-index --assume-untracked src/main.cpp
+git update-index --assume-untracked include/wifi_secrets.h
+```
+
 ## PlatformIO Configuration
 The focus for this repository is to use the Arduino Core for ESP32 v3.x. Therefore it is reccomended to use the Configuration for Arduino core v3.x.
 With v3.x there are some braking changes which means that not all examples will directly run on v2.x and need code adaption.

@@ -1,3 +1,6 @@
+# wifi secrets
+include/wifi_secrets.h
+
 # Mac related files
 .DS_Store
 

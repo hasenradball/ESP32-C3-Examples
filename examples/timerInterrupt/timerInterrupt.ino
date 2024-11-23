@@ -20,16 +20,13 @@ void setup() {
    Serial.print("\n\n=== Timer Example ===\n\n");
    pinMode(LED_PIN, OUTPUT);
    
-   byte timer_id = 0;
-   // precaler 80 => microsenconds
-   unsigned int prescaler = 80;
-   // timer in microseconds => 30 s
-   unsigned int limit = 30000000; // int is 4 bytes on the ESP32
-   
-   timer = timerBegin(timer_id, prescaler, true);
-   timerAttachInterrupt(timer, &timer_isr, true);
-   timerAlarmWrite(timer, limit, true);
-   timerAlarmEnable(timer);
+
+   // Frequency 1 MHz
+   timer = timerBegin(1000000U);
+   timerAttachInterrupt(timer, &timer_isr);
+   // limit 30 s
+   unsigned int limit = 30000000U;
+   timerAlarm(timer, limit, true, 0);
 }
 
 
@@ -38,5 +35,4 @@ void loop() {
       timer_fired = false;
       Serial.print("timer has fired!\n");
    }
-   
 }

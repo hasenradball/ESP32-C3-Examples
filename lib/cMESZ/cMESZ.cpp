@@ -21,7 +21,7 @@ MESZ::MESZ() {
 /**
  * @brief set the Timezone according to your area
  * 
- * @param timeZone Timizone String
+ * @param timeZone Timezone String
  * @return true or false
  */
 bool MESZ::setTimeZone(const char *timeZone) {

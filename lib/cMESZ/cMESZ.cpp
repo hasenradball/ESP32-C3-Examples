@@ -110,7 +110,7 @@ bool MESZ::isSummerTime(time_t _ti) {
   struct tm tmp;
   gmtime_r(&_ti, &tmp);
 
-  // keine Sommerzeit zwischen November und Februar
+  // keine Sommerzeit zwischen November und February
   if (tmp.tm_mon < 2 || tmp.tm_mon > 9) return false;
 
   // Sommerzeit zwischen April und September

@@ -1,4 +1,5 @@
 [![Compile examples foolder](https://github.com/hasenradball/ESP32-C3-Examples/actions/workflows/compile_examples.yml/badge.svg)](https://github.com/hasenradball/ESP32-C3-Examples/actions/workflows/compile_examples.yml)
+[![Spell Check](https://github.com/hasenradball/ESP32-C3-Examples/actions/workflows/spell_checker.yml/badge.svg)](https://github.com/hasenradball/ESP32-C3-Examples/actions/workflows/spell_checker.yml)
 
 # ESP32-C3-Examples
 Code Examples for the Espressif ESP32-C3 SoC.
@@ -40,7 +41,7 @@ git update-index --assume-untracked include/wifi_secrets.h
 ```
 
 ## PlatformIO Configuration
-The focus for this repository is to use the Arduino Core for ESP32 v3.x. Therefore it is reccomended to use the Configuration for Arduino core v3.x.
+The focus for this repository is to use the Arduino Core for ESP32 v3.x. Therefore it is recommended to use the Configuration for Arduino core v3.x.
 With v3.x there are some braking changes which means that not all examples will directly run on v2.x and need code adaption.
 
 ### Arduino Core v3.x

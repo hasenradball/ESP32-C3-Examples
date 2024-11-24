@@ -65,7 +65,7 @@ void dprintf(__attribute__((unused)) const char *txt, __attribute__((unused))Typ
   Serial.print(" ");
   Serial.print(buffer);
   if (count > LENGTH) {
-      Serial.print (" =>> ERROR: sprintf buffer too low for dprintf() functionality!\n Resulting output exeeds the available buffer\n");
+      Serial.print (" =>> ERROR: sprintf buffer too low for dprintf() functionality!\n Resulting output exceeds the available buffer\n");
   }
 #endif
 #endif

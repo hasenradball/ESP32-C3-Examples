@@ -34,10 +34,10 @@ void setup() {
       is_connected = true;
   }, WiFiEvent_t::ARDUINO_EVENT_WIFI_STA_CONNECTED);
   
-  // define wifi event when diconnected
+  // define wifi event when disconnected
   WiFi.onEvent([] (WiFiEvent_t event, WiFiEventInfo_t info) -> void {
       DBG__PRINT("\n\nSTA disconnected!");
-      DBG__PRINT("STA disonnected reason: ", "");
+      DBG__PRINT("STA disconnected reason: ", "");
       DBG__PRINT(info.wifi_sta_disconnected.reason);
       is_connected = false;
       //digitalWrite(LED_R, HIGH);
@@ -45,7 +45,7 @@ void setup() {
       //digitalWrite(LED_G, LOW);
   }, WiFiEvent_t::ARDUINO_EVENT_WIFI_STA_DISCONNECTED);
   
-  // define wifi event wehn got ip
+  // define wifi event when got ip
   WiFi.onEvent([] (WiFiEvent_t event, WiFiEventInfo_t info) -> void {
       DBG__PRINT("\n\nGot IP address!");
       DBG__PRINT("IP address: ", "");

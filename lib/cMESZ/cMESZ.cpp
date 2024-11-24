@@ -155,7 +155,7 @@ int MESZ::setUnixTime(timeval * tv) {
 }
 
 /**
- * @brief print time in formated manner ("2001-08-23 14:55:02")
+ * @brief print time in formatted manner ("2001-08-23 14:55:02")
  * 
  */
 void MESZ::showTime(void) {
@@ -168,7 +168,7 @@ void MESZ::showTime(void) {
 /**
  * @brief function to call stftime for local time
  * 
- * @param ptrtimestr pointer wher to save the time string
+ * @param ptrtimestr pointer where to save the time string
  * @param buffersize buffer size of time string buffer 
  * @param timeformat format specifier
  */

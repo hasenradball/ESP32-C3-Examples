@@ -134,7 +134,7 @@ inline char * MESZ::get_asctime(void) {
 }
 
 /**
- * @brief get flag isdst -> if summertime is aktive
+ * @brief get flag isdst -> if summertime is active
  * 
  * @return tm.tm_isdst
  */

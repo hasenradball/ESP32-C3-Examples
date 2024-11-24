@@ -49,7 +49,7 @@ class MESZ {
     bool isSummerTime(time_t);
 };
 
-// include inlin member functions
+// include inline member functions
 #include <cMESZ.inl>
 
 #endif

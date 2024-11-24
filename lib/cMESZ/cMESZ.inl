@@ -65,7 +65,7 @@ inline int MESZ::getSecond_ms(void) {
 }
 
 /**
- * @brief retun seconds of struct tm
+ * @brief return seconds of struct tm
  * 
  * @return tm.tm_sec
  */

@@ -110,28 +110,28 @@ bool MESZ::isSummerTime(time_t _ti) {
   struct tm tmp;
   gmtime_r(&_ti, &tmp);
 
-  // keine Sommerzeit zwischen November und February
+  // no summertime between november and february
   if (tmp.tm_mon < 2 || tmp.tm_mon > 9) return false;
 
-  // Sommerzeit zwischen April und September
+  // summertime between april and september
   if (tmp.tm_mon > 2 && tmp.tm_mon < 9) return true;
 
-  // Berechnung der Sommerzeit im März und Oktober
+  // calculation of the summertime im march and october
   if (tmp.tm_year + 1900 != _calc_year ) {
     _calc_year = tmp.tm_year + 1900;
-    // Berechne die Stunden zum Zeitpunkt der Umstellung im März
-    // Die Sommerzeit beginnt immer am letzten Sonntag im März
+    // calculate the hours for the summertime switch point in march
+    // summertime starts always at last sunday in march
     _t1 = 24 * (31 - (5 * _calc_year / 4 + 4) % 7) + 1;
-    // Berechne die Stunden zum Zeitpunkt der Umstellung im Oktober
-    // Die Winterzeit beginnt immer am letzten Sonntag im Oktober
+    // calculate the hours for the summertime switch point in october
+    // the winter time starts always at last sunday in october
     _t2 = 24 * (31 - (5 * _calc_year / 4 + 1) % 7) + 1;
   }
   AnzStd = tmp.tm_hour + 24 * tmp.tm_mday;
-  // Wenn März und Std >= Zeitpunkt der Umstellung --> Sommerzeit
+  // if march AND AnzStd >= switch point => summertime 
   if (tmp.tm_mon == 2 && AnzStd >= _t1) return true;
-  // Wenn Oktober und Std < Zeitpunkt der Umstellung --> Sommerzeit
+  // if october AND AnzStd < switch point => summertime
   if (tmp.tm_mon == 9 && AnzStd < _t2) return true;
-  // sonst Winterzeit
+  // else winter time
   return false;
 }
 
@@ -180,7 +180,7 @@ void MESZ::get_timeformatted(char *ptrtimestr, size_t buffersize, const char *ti
 /**
  * @brief function to call stftime for unix time
  * 
- * @param ptrtimestr pointer wher to save the time string
+ * @param ptrtimestr pointer where to save the time string
  * @param buffersize buffer size of time string buffer 
  * @param timeformat format specifier
  */

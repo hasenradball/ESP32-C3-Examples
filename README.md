@@ -1,15 +1,22 @@
 [![Compile examples foolder](https://github.com/hasenradball/ESP32-C3-Examples/actions/workflows/compile_examples.yml/badge.svg)](https://github.com/hasenradball/ESP32-C3-Examples/actions/workflows/compile_examples.yml)
 
 # ESP32-C3-Examples
-Code Examples for the Espressif ESP32-C3 SoC
+Code Examples for the Espressif ESP32-C3 SoC.
+
+![esp32-c3](./docs/ESP32-C3.jpg)
 
 List of content<br>
-* [About](#about)<br>
-* [Installation](#installation)<br>
-* [PlatformIo Configuration](#platformio-configuration)<br>
-* [Compatibility](#compatibility)
-* [Copyright](#copyright)
-* [License](#license)
+* [ESP32-C3-Exampes](#esp32-c3-examples)
+   * [About](#about)<br>
+   * [Installation](#installation)<br>
+   * [PlatformIo Configuration](#platformio-configuration)<br>
+      * [Arduino core v3.x](#arduino-core-v3x)
+      * [Arduino core v2.x](#arduino-core-v2x)
+   * [Pinmap](#pinmap)<br>
+   * [Compatibility](#compatibility)<br>
+* [Copyright](#copyright)<br>
+* [License](#license)<br>
+# [Helpful Links](#helpful-links)<br>
 
 
 ## About
@@ -68,12 +75,18 @@ build_flags =
     -DARDUINO_USB_MODE=1
 ```
 
+## Pinmap
+![esp32-ce-pinmap](./docs/ESP32-C3_sm_pinmap.jpeg)
+
 ## Compatibility
 Tested with:
 * ESP32
 * ESP32-C3
 
-## Copyright
+# Helpful Links
+[ESP32-c3 Datasheet](https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://www.espressif.com/sites/default/files/documentation/esp32-c3_datasheet_en.pdf&ved=2ahUKEwiG2ZaWs_SJAxXsBtsEHRFMEfEQFnoECAkQAQ&usg=AOvVaw1dZ6MY4KZrOkUy9TYhe5BK)
+
+[//]: # (# Copyright)
 
 # License
 This library is licensed under MIT Licence.

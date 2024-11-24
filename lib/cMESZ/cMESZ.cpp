@@ -135,8 +135,6 @@ bool MESZ::isSummerTime(time_t _ti) {
   return false;
 }
 
-
-
 /**
  * @brief set the unix time of the system by a given time_t value
  * 
@@ -150,7 +148,7 @@ int MESZ::setUnixTime(timeval * tv) {
 #if ESP8266
   setTZ(_timezone);
 #elif ESP32
-  setenv("TZ",_timezone,1);
+  setenv("TZ", _timezone, 1);
   tzset();
 #endif
   return status;

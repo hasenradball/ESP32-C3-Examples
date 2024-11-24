@@ -12,7 +12,6 @@ class MESZ {
     MESZ();
 
     static void set_time_synchronized_true(struct timeval *_tv);
-
     static void set_time_synchronized_false(void);
     static bool get_time_synchronized(void);
 

@@ -32,13 +32,13 @@ void setup() {
    }
 
    // wait if SNTP has synchronized internal clock
-   while (!MESZ::get_time_synchronized()) {
+   while (!MESZ::get_timeHasBeenSynchronized()) {
       yield();
    }
-   Serial.println("Time successfully synchronized!\n");
-   MESZ::set_time_synchronized_false();
+   Serial.println("Time successfully syncronized!");
+   MESZ::set_timeHasBeenSynchronized_false();
    auto syncTime_ms = sntp_get_sync_interval();
-   Serial.printf("the sntp sync interval is set to : %ld ms / %ld s / %ld min / %ld h", \
+   Serial.printf("\tthe sntp sync intervall is set to : %ld ms / %ld s / %ld min / %ld h\n", \
    syncTime_ms, syncTime_ms/1000U, syncTime_ms/60000U, syncTime_ms/3600000U);
 
    Serial.printf("\nZeit: %s", uhr.get_asctime());
@@ -46,9 +46,9 @@ void setup() {
 
 
 void loop() {
-   if (MESZ::get_time_synchronized()) {
-      Serial.println("Time successfully synchronized!\n");
-      MESZ::set_time_synchronized_false();
+   if (MESZ::get_timeHasBeenSynchronized()) {
+      Serial.println("Time successfully syncronized!\n");
+      MESZ::set_timeHasBeenSynchronized_false();
       Serial.printf("\n Zeit: %s", uhr.get_asctime());
    }
 }

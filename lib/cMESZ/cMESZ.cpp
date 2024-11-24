@@ -8,13 +8,13 @@
 #include "cMESZ.h"
 #include "DBG_Print.h"
 
-bool MESZ::_time_synchronized {false};
+bool MESZ::_timeHasBeenSynchronized {false};
 
 /**
  * @brief Construct a new MESZ::MESZ object
  */
 MESZ::MESZ() {
-  sntp_set_time_sync_notification_cb(MESZ::set_time_synchronized_true);
+  sntp_set_time_sync_notification_cb(MESZ::set_timeHasBeenSynchronized_true);
   clear_tm();
 }
 
@@ -69,7 +69,7 @@ bool MESZ::init(void) {
   DBG__PRINT("\tTimeserver1: ", _NTPServer[0]);
   DBG__PRINT("\tTimeserver2: ", _NTPServer[1]);
   DBG__PRINT("\tTimeserver3: ", _NTPServer[2]);
-  _time_synchronized = false;
+  _timeHasBeenSynchronized = false;
   configTzTime(_timezone, _NTPServer[0], _NTPServer[1], _NTPServer[2]);
   return true;
 }
@@ -87,13 +87,6 @@ bool MESZ::UpdateTime(bool unix) {
     return true;
   }
   else {
-  // remove if it works on esp32
-  // #if ESP32
-  //     _tv.tv_sec += 3600;
-  //     if (isSummerTime(_tv.tv_sec)) {
-  //       _tv.tv_sec += 3600;
-  //     }
-  // #endif
     localtime_r(&_tv.tv_sec, &_tm);
   }
   return true;

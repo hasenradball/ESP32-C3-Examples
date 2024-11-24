@@ -11,9 +11,9 @@ class MESZ {
   public:
     MESZ();
 
-    static void set_time_synchronized_true(struct timeval *_tv);
-    static void set_time_synchronized_false(void);
-    static bool get_time_synchronized(void);
+    static void set_timeHasBeenSynchronized_true(struct timeval *_tv);
+    static void set_timeHasBeenSynchronized_false(void);
+    static bool get_timeHasBeenSynchronized(void);
 
     bool setTimeZone(const char *timezone = nullptr);
     bool setTimeServers(const char *timeServer1 = nullptr, const char *timeServer2 = nullptr, const char *timeServer3 = nullptr);
@@ -42,7 +42,7 @@ class MESZ {
     struct timeval _tv {0, 0};
     struct tm _tm;    
     int _t1, _t2, _calc_year;
-    static bool _time_synchronized;
+    static bool _timeHasBeenSynchronized;
     void clear_tm(void) {_tm = {0, 0, 0, 0, 0, 0, 0, 0, -1};};
     
     bool UpdateTime(bool unix = false);

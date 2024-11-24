@@ -16,7 +16,7 @@ List of content<br>
    * [Compatibility](#compatibility)<br>
 * [Copyright](#copyright)<br>
 * [License](#license)<br>
-# [Helpful Links](#helpful-links)<br>
+* [Helpful Links](#helpful-links)<br>
 
 
 ## About

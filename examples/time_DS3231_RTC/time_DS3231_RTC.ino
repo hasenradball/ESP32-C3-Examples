@@ -57,10 +57,10 @@ void setup() {
    while (!MESZ::get_timeHasBeenSynchronized()) {
       yield();
    }
-   Serial.println("Time successfully syncronized!");
+   Serial.println("Time successfully synchronized!");
    MESZ::set_timeHasBeenSynchronized_false();
    auto syncTime_ms = sntp_get_sync_interval();
-   Serial.printf("\tthe sntp sync intervall is set to : %ld ms / %ld s / %ld min / %ld h\n", \
+   Serial.printf("\tthe sntp sync interval is set to : %ld ms / %ld s / %ld min / %ld h\n", \
    syncTime_ms, syncTime_ms/1000U, syncTime_ms/60000U, syncTime_ms/3600000U);
 
    Serial.printf("\nZeit: %s", uhr.get_asctime());

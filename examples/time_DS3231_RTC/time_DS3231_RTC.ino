@@ -57,10 +57,10 @@ void setup() {
    while (!MESZ::get_timeHasBeenSynchronized()) {
       yield();
    }
-   Serial.println("Time successfully synchronized!");
+   Serial.println("Time successfully syncronized!");
    MESZ::set_timeHasBeenSynchronized_false();
    auto syncTime_ms = sntp_get_sync_interval();
-   Serial.printf("\tthe sntp sync interval is set to : %ld ms / %ld s / %ld min / %ld h\n", \
+   Serial.printf("\tthe sntp sync intervall is set to : %ld ms / %ld s / %ld min / %ld h\n", \
    syncTime_ms, syncTime_ms/1000U, syncTime_ms/60000U, syncTime_ms/3600000U);
 
    Serial.printf("\nZeit: %s", uhr.get_asctime());
@@ -74,6 +74,9 @@ void setup() {
    // clock has actual time then dicconnect Wifi
    // to prevent from synchronizing
    wifi.Wifi_Disconnect();
+   while(uhr.getSecond()) {
+      yield();
+   }
    compareTimes();
 }
 
@@ -81,8 +84,9 @@ void loop() {
    unsigned int ms{millis()};
    static unsigned int last_ms {ms};
 
-   if (ms - last_ms >= 36000000U) {
+   if (ms - last_ms >= 3600000U) {
       // print time from ESP and Time from DS3231-RTC
+      last_ms = ms;
       compareTimes();
    }
 }

@@ -40,7 +40,10 @@ class Wifi {
     
     bool IsConnected(void) const {return WiFi.isConnected();};
     int32_t Wifi_rssi(void) const {return WiFi.RSSI();};
-    bool Wifi_Disconnect(void) {return WiFi.disconnect();};
+    
+    bool Wifi_Disconnect(bool setWifiOff, bool eraseCredentials) {
+      return WiFi.disconnect(setWifiOff, eraseCredentials);
+    };
     
 };
 

@@ -1,5 +1,5 @@
 /**
- * @brief for the ESP32: set the variable _time_synchronized to true
+ * @brief for the ESP32: set the variable _timeHasBeenSynchronized to true
  * 
  * @param _tv 
  */
@@ -8,7 +8,7 @@ inline void MESZ::set_timeHasBeenSynchronized_true(struct timeval *_tv) {
 }
 
 /**
-* @brief set the variable _time_synchronized to false
+* @brief set the variable _timeHasBeenSynchronized to false
 * 
 */
 inline void MESZ::set_timeHasBeenSynchronized_false(void) {
@@ -16,7 +16,7 @@ inline void MESZ::set_timeHasBeenSynchronized_false(void) {
 }
 
 /**
- * @brief get the value of _time_synchronized
+ * @brief get the value of _timeHasBeenSynchronized
  * 
  * @return true if time was synched else false
  */

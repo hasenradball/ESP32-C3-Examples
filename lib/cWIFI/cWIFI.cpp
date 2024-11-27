@@ -1,7 +1,7 @@
 /*
   Projekt: wifi class wrapper for ESP8266 and ESP32
   Microcontroller: ESP8266 / ESP32
-  Date: 18.11.2018
+  Date: 27.11.2024
   Issuer: Frank Häfele
 */
 

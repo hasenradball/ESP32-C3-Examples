@@ -41,10 +41,29 @@ class Wifi {
     bool IsConnected(void) const {return WiFi.isConnected();};
     int32_t Wifi_rssi(void) const {return WiFi.RSSI();};
     
+#ifdef ESP8266
+  /**
+   * @brief wifi disconnect function
+   * 
+   * @return true 
+   * @return false 
+   */
+    bool Wifi_Disconnect() {return WiFi.disconnect()};
+#endif
+
+#ifdef ESP32
+  /**
+   * @brief wifi disconnect function
+   * 
+   * @param setWifiOff set mode to WIFI_OFF
+   * @param eraseCredentials delete credentials
+   * @return true 
+   * @return false 
+   */
     bool Wifi_Disconnect(bool setWifiOff, bool eraseCredentials) {
       return WiFi.disconnect(setWifiOff, eraseCredentials);
     };
-    
+#endif
 };
 
 #endif

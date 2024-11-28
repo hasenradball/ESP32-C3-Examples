@@ -60,7 +60,7 @@ class Wifi {
    * @return true 
    * @return false 
    */
-    bool Wifi_Disconnect(bool setWifiOff, bool eraseCredentials) {
+    bool Wifi_Disconnect(bool setWifiOff = false, bool eraseCredentials = false) {
       return WiFi.disconnect(setWifiOff, eraseCredentials);
     };
 #endif

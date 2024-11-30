@@ -66,7 +66,7 @@ const char *filename {"/time.log"};
 void writeToSd(fs::FS &fs, const char *path, const char *message, const char *mode = FILE_WRITE) {
   Serial.printf("Writing file: %s\n", path);
 
-  File file = fs.open(path, FILE_APPEND);
+  File file = fs.open(path, mode);
   if (!file) {
     Serial.println("Failed to open file for writing");
     return;

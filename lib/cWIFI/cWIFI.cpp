@@ -247,6 +247,7 @@ bool Wifi::Wifi_AP_Start(void) {
   return status;
 }
 
+#ifdef ESP8266
 /**
  * @brief set wifi to mode WIFI_OFF
  * 
@@ -261,6 +262,7 @@ bool Wifi::Wifi_Stop(void) {
   }
   return status;
 }
+#endif
 
 /**
  * @brief print wifi information like ssid, ip, gateway, etc..

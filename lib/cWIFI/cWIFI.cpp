@@ -187,6 +187,7 @@ wl_status_t Wifi::Wifi_Status(void) const {
   // keep in mind
   /*
     WL_NO_SHIELD        = 255,   // for compatibility with WiFi Shield library
+    WL_STOPPED          = 254,   // ESP32
     WL_IDLE_STATUS      = 0,
     WL_NO_SSID_AVAIL    = 1,
     WL_SCAN_COMPLETED   = 2,
@@ -200,6 +201,11 @@ wl_status_t Wifi::Wifi_Status(void) const {
   if (status == WL_NO_SHIELD) {
     DBG__PRINT(F("\n WiFI.status =  NO_SHIELD"));
   }
+#ifdef ESP32
+   else if (status == WL_STOPPED) {
+    DBG__PRINT(F("\n WiFI.status =  WL_STOPPED"));
+  }
+#endif
   else if (status == WL_IDLE_STATUS) {
     DBG__PRINT(F("\n WiFI.status =  IDLE_STATUS"));
   }

@@ -36,12 +36,13 @@ class Wifi {
     wl_status_t Wifi_Status(void) const;
     bool Wifi_Connect(bool static_ip = false);
     bool Wifi_AP_Start(void);
+    
     bool IsConnected(void) const {return WiFi.isConnected();};
     int32_t Wifi_rssi(void) const {return WiFi.RSSI();};
     
 #ifdef ESP8266
     bool Wifi_Stop(void);
-
+    
   /**
    * @brief wifi disconnect function
    * 
@@ -60,7 +61,7 @@ class Wifi {
    * @return true 
    * @return false 
    */
-    bool Wifi_Disconnect(bool setWifiOff = false, bool eraseCredentials = false) {
+    bool Wifi_Disconnect(bool setWifiOff, bool eraseCredentials) {
       return WiFi.disconnect(setWifiOff, eraseCredentials);
     };
 #endif

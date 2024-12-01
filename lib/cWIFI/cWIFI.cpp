@@ -3,6 +3,8 @@
   Microcontroller: ESP8266 / ESP32
   Date: 27.11.2024
   Issuer: Frank Häfele
+
+
 */
 
 #include "cWIFI.h"
@@ -177,6 +179,21 @@ bool Wifi::Wifi_Connect(bool static_ip) {
   return false;
 }
 
+#ifdef ESP8266
+/**
+ * @brief set wifi to mode WIFI_OFF
+ * 
+ * @return true 
+ * @return false 
+ */
+bool Wifi::Wifi_Stop(void) {
+  bool status {WiFi.mode(WIFI_OFF)};
+  DBG__PRINT("WiFi mode set to WIFI_OFF: ", status);
+  while (WiFi.status() != WL_DISCONNECTED) {
+    yield();
+  }
+  return status;
+}
 
 /**
  * @brief gets the actual wifi status
@@ -187,7 +204,6 @@ wl_status_t Wifi::Wifi_Status(void) const {
   // keep in mind
   /*
     WL_NO_SHIELD        = 255,   // for compatibility with WiFi Shield library
-    WL_STOPPED          = 254,   // ESP32
     WL_IDLE_STATUS      = 0,
     WL_NO_SSID_AVAIL    = 1,
     WL_SCAN_COMPLETED   = 2,
@@ -201,11 +217,6 @@ wl_status_t Wifi::Wifi_Status(void) const {
   if (status == WL_NO_SHIELD) {
     DBG__PRINT(F("\n WiFI.status =  NO_SHIELD"));
   }
-#ifdef ESP32
-   else if (status == WL_STOPPED) {
-    DBG__PRINT(F("\n WiFI.status =  WL_STOPPED"));
-  }
-#endif
   else if (status == WL_IDLE_STATUS) {
     DBG__PRINT(F("\n WiFI.status =  IDLE_STATUS"));
   }
@@ -224,11 +235,9 @@ wl_status_t Wifi::Wifi_Status(void) const {
   else if (status == WL_CONNECTION_LOST) {
     DBG__PRINT(F("\n WiFI.status =  CONNECTION_LOST"));
   }
-#ifndef ESP32
   else if (status == WL_WRONG_PASSWORD) {
     DBG__PRINT(F("\n WiFI.status =  WRONG_PASSWORD"));
   }
-#endif
   else if (status == WL_DISCONNECTED) {
     DBG__PRINT(F("\n WiFI.status =  DISCONNECTED"));
   }
@@ -237,7 +246,61 @@ wl_status_t Wifi::Wifi_Status(void) const {
   }
   return status;
 }
+#endif
 
+#ifdef ESP32
+/**
+ * @brief gets the actual wifi status
+ * 
+ * @return wl_status_t 
+ */
+wl_status_t Wifi::Wifi_Status(void) const {
+  // keep in mind
+  /*
+    WL_NO_SHIELD        = 255,   // for compatibility with WiFi Shield library
+    WL_NO_STOPPED       = 254,
+    WL_IDLE_STATUS      = 0,
+    WL_NO_SSID_AVAIL    = 1,
+    WL_SCAN_COMPLETED   = 2,
+    WL_CONNECTED        = 3,
+    WL_CONNECT_FAILED   = 4,
+    WL_CONNECTION_LOST  = 5,
+    WL_DISCONNECTED     = 6
+  */
+  wl_status_t status = WiFi.status();
+  if (status == WL_NO_SHIELD) {
+    DBG__PRINT(F("\n WiFI.status =  NO_SHIELD"));
+  }
+  else if (status == WL_STOPPED) {
+    DBG__PRINT(F("\n WiFI.status =  IDLE_STOPPED"));
+  }
+  else if (status == WL_IDLE_STATUS) {
+    DBG__PRINT(F("\n WiFI.status =  IDLE_STATUS"));
+  }
+  else if (status == WL_NO_SSID_AVAIL) {
+    DBG__PRINT(F("\n WiFI.status =  NO_SSID_AVAIL"));
+  }
+  else if (status == WL_SCAN_COMPLETED) {
+    DBG__PRINT(F("\n WiFI.status =  SCAN_COMPLETED"));
+  }
+  else if (status == WL_CONNECTED) {
+    DBG__PRINT(F("\n WiFI.status =  CONNECTED"));
+  }
+  else if (status == WL_CONNECT_FAILED) {
+    DBG__PRINT(F("\n WiFI.status =  CONNECT_FAILED"));
+  }
+  else if (status == WL_CONNECTION_LOST) {
+    DBG__PRINT(F("\n WiFI.status =  CONNECTION_LOST"));
+  }
+  else if (status == WL_DISCONNECTED) {
+    DBG__PRINT(F("\n WiFI.status =  DISCONNECTED"));
+  }
+  else {
+     DBG__PRINT(F("\n No appropriate Status available!"));
+  }
+  return status;
+}
+#endif
 
 /**
  * @brief start of wifi access point
@@ -252,23 +315,6 @@ bool Wifi::Wifi_AP_Start(void) {
   delay(100);
   return status;
 }
-
-#ifdef ESP8266
-/**
- * @brief set wifi to mode WIFI_OFF
- * 
- * @return true 
- * @return false 
- */
-bool Wifi::Wifi_Stop(void) {
-  bool status {WiFi.mode(WIFI_OFF)};
-  DBG__PRINT("WiFi mode set to WIFI_OFF: ", status);
-  while (WiFi.status() != WL_DISCONNECTED) {
-    yield();
-  }
-  return status;
-}
-#endif
 
 /**
  * @brief print wifi information like ssid, ip, gateway, etc..

@@ -1,5 +1,5 @@
-[![Compile examples foolder](https://github.com/hasenradball/ESP32-C3-Examples/actions/workflows/compile_examples.yml/badge.svg)](https://github.com/hasenradball/ESP32-C3-Examples/actions/workflows/compile_examples.yml)
 [![Spell Check](https://github.com/hasenradball/ESP32-C3-Examples/actions/workflows/spell_checker.yml/badge.svg)](https://github.com/hasenradball/ESP32-C3-Examples/actions/workflows/spell_checker.yml)
+[![Compile examples foolder](https://github.com/hasenradball/ESP32-C3-Examples/actions/workflows/compile_examples.yml/badge.svg)](https://github.com/hasenradball/ESP32-C3-Examples/actions/workflows/compile_examples.yml)
 
 # ESP32-C3-Examples
 Code Examples for the Espressif ESP32-C3 SoC.

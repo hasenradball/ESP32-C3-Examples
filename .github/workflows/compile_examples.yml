@@ -36,11 +36,8 @@ jobs:
               source-url: https://espressif.github.io/arduino-esp32/package_esp32_index.json
               version: ${{ matrix.core.version }}
           fqbn: ${{ matrix.board.fqbn }}
-          sketch-paths:
-            ./examples/helloWorld/helloWorld.ino
-            ./examples/wifiTest/wifiTest.ino
-            ./examples/readAM2302-Sensor/readAM2302-Sensor.ino
-            ./examples/timerInterrupt/timerInterrupt.ino
+          sketch-paths: |
+            - ./
           libraries: |
             - name: AM2302-Sensor
           cli-compile-flags: |

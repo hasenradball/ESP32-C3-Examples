@@ -116,9 +116,6 @@ void setupTimeConfigurationAndInit(void) {
 
 void compareTimes() {
    File file = SD.open(filename, FILE_APPEND);
-   if (!file) {
-      Serial.println("Failed to open file for writing");
-   }
    char buffer[80];
    DateTime datetime = myRTC.now();
    Serial.print("\n\nTime of ESP:    ");
@@ -140,9 +137,9 @@ void compareTimes() {
 
 void setup() {
    Serial.begin(115200);
-   while (!Serial) {
-      yield();
-   }
+   // while (!Serial) {
+   //    yield();
+   // }
    delay(2000);
    Serial.print(F("\n\n=== ESP32-C3 Example copare RTCs with SDcard logging ===\n\n"));
 
@@ -200,10 +197,12 @@ void setup() {
 
    // clock has actual time, then dicconnect Wifi
    // and switch wifi off to prevent from synchronizing
-   if (wifi.Wifi_Disconnect(true)) {
+   wifi.Wifi_Status();
+   if (wifi.Wifi_Disconnect(true, false)) {
       Serial.println("\nWifi disconnected");
       myFile.println("\nWifi disconnected");
    }
+   wifi.Wifi_Status();
    myFile.close();
 
    while(uhr.getSecond()) {

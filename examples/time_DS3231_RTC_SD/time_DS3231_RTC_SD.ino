@@ -116,6 +116,9 @@ void setupTimeConfigurationAndInit(void) {
 
 void compareTimes() {
    File file = SD.open(filename, FILE_APPEND);
+   if (!file) {
+      Serial.println("Failed to open file for writing");
+   }
    char buffer[80];
    DateTime datetime = myRTC.now();
    Serial.print("\n\nTime of ESP:    ");

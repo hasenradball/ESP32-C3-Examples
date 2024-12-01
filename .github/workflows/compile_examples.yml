@@ -40,6 +40,7 @@ jobs:
             - ./
           libraries: |
             - name: AM2302-Sensor
+            - name: DS3231-RTC
           cli-compile-flags: |
             - --library
             - "${{ github.workspace }}/include"

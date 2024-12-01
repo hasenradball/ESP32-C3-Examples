@@ -73,9 +73,8 @@ void setup() {
 
    // clock has actual time, then dicconnect Wifi
    // and switch wifi off to prevent from synchronizing
-   if (wifi.Wifi_Disconnect()){
+   if (wifi.Wifi_Disconnect(true, false)){
       Serial.println("\nWifi disconnected");
-      wifi.Wifi_Stop();
    }
 
    while(uhr.getSecond()) {

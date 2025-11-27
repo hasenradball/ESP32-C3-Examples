@@ -119,6 +119,8 @@ Tested with:
 # Helpful Links
 [ESP32-c3 Datasheet](https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://www.espressif.com/sites/default/files/documentation/esp32-c3_datasheet_en.pdf&ved=2ahUKEwiG2ZaWs_SJAxXsBtsEHRFMEfEQFnoECAkQAQ&usg=AOvVaw1dZ6MY4KZrOkUy9TYhe5BK)
 
+[ESP32-C3 SuperMini Turorials](https://github.com/sidharthmohannair/Tutorial-ESP32-C3-Super-Mini)
+
 [//]: # (# Copyright)
 
 # License

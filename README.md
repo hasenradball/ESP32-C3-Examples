@@ -11,8 +11,8 @@ List of content<br>
    * [About](#about)<br>
    * [Installation](#installation)<br>
    * [PlatformIo Configuration](#platformio-configuration)<br>
-      * [Arduino core v3.x](#arduino-core-v3x)
-      * [Arduino core v2.x](#arduino-core-v2x)
+      * [Arduino core latest](#arduino-core-latest-with-pioarduino
+      * [Arduino core v3.x](#arduino-core-v3x-deprecated
    * [Pinmap](#pinmap)<br>
    * [Compatibility](#compatibility)<br>
 * [Copyright](#copyright)<br>
@@ -40,11 +40,29 @@ git update-index --assume-untracked src/main.cpp
 git update-index --assume-untracked include/wifi_secrets.h
 ```
 
-## PlatformIO Configuration
-The focus for this repository is to use the Arduino Core for ESP32 v3.x. Therefore it is recommended to use the Configuration for Arduino core v3.x.
-With v3.x there are some braking changes which means that not all examples will directly run on v2.x and need code adaption.
+## pioarduino Configuration
+The focus for this repository is to use the latest Arduino Core for ESP32. Therefore it is recommended to use the Configuration for Arduino core:<br>[arduino-esp32](https://github.com/espressif/arduino-esp32)<br>
+With Core v3.x there are some braking changes which means that not all examples will directly run on like on Core v2.x and need code adaption.
 
-### Arduino Core v3.x
+### Arduino Core latest (with pioarduino)
+For the usage of the lastest Arduino Core the following configuration should be used.
+
+```
+[env]
+platform = https://github.com/pioarduino/platform-espressif32/releases/download/stable/platform-espressif32.zip
+board_build.filesystem = littlefs
+
+[env:nologo_esp32c3_super_mini]
+board = nologo_esp32c3_super_mini
+framework = arduino
+build_flags =
+   -std=c++17
+   -Wall
+   -Wextra
+;   -Werror
+```
+
+### Arduino Core v3.x (deprecated)
 For the usage of the Arduino Core v3.0.7 the following configuration should be used.
 
 ```
@@ -61,20 +79,7 @@ build_flags =
     -DARDUINO_USB_CDC_ON_BOOT=1
     -DARDUINO_USB_MODE=1
 ```
-### Arduino Core v2.x
-For the usage of the Arduino Core v3.0.7 the following configuration should be used.
 
-```
-[env:esp32-c3-devkitm-1]
-board = esp32-c3-devkitm-1
-
-platform = espressif32
-
-framework = arduino
-build_flags = 
-    -DARDUINO_USB_CDC_ON_BOOT=1
-    -DARDUINO_USB_MODE=1
-```
 
 ## Pinmap
 ![esp32-ce-pinmap](./docs/ESP32-C3_sm_pinmap.jpeg)

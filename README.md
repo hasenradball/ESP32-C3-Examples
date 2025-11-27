@@ -84,7 +84,7 @@ build_flags =
 ## Pinmap
 ![esp32-ce-pinmap](./docs/ESP32-C3_sm_pinmap.jpeg)
 
-See also file `variants/<your-board>/pins_arduino.h`, here as example for the board `nologoesp32c3_super_mini`.
+See also file `variants/<your-board>/pins_arduino.h`, here as example for the board `nologo_esp32c3_super_mini`.
 ```
 #ifndef Pins_Arduino_h
 #define Pins_Arduino_h

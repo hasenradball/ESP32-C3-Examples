@@ -45,7 +45,7 @@ The focus for this repository is to use the latest Arduino Core for ESP32. There
 With Core v3.x there are some braking changes which means that not all examples will directly run on like on Core v2.x and need code adaption.
 
 ### Arduino Core latest (with pioarduino)
-For the usage of the lastest Arduino Core the following configuration should be used.
+For the usage of the latest Arduino Core the following configuration should be used.
 
 ```
 [env]
@@ -124,7 +124,7 @@ Tested with:
 # Helpful Links
 [ESP32-c3 Datasheet](https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://www.espressif.com/sites/default/files/documentation/esp32-c3_datasheet_en.pdf&ved=2ahUKEwiG2ZaWs_SJAxXsBtsEHRFMEfEQFnoECAkQAQ&usg=AOvVaw1dZ6MY4KZrOkUy9TYhe5BK)
 
-[ESP32-C3 SuperMini Turorials](https://github.com/sidharthmohannair/Tutorial-ESP32-C3-Super-Mini)
+[ESP32-C3 SuperMini Tutorials](https://github.com/sidharthmohannair/Tutorial-ESP32-C3-Super-Mini)
 
 [//]: # (# Copyright)
 
